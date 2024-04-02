@@ -1,13 +1,20 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Time    : 2019/6/20 19:20
-# @Author  : liuhui
-# @Detail  : 测试用api_server
+
 
 import json
 from flask import Flask, request, make_response
 
+from pactverify.matchers import PactJsonVerify
+from test_pact import PactTest
+
 app = Flask(__name__)
+
+@app.route('/pactverify', methods=['POST'])
+def pactVerify():
+    data=request.get_json()
+    response=data.get('response')
+    tempfile_path=data.get('path')
+    PactTest().test_config_1(response=response,path=tempfile_path)
+
 
 
 @app.route('/config', methods=['GET'])

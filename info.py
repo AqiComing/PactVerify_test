@@ -1,8 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Time    : 2019/8/12 14:59
-# @Author  : liuhui
-# @Detail  :
+
 
 from pactverify.matchers import Matcher, Like, EachLike, Enum, Term, PactVerify
 

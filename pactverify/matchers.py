@@ -30,6 +30,7 @@ class PactVerify:
 
         if generate_dict is None:
             generate_dict = self.generate_dict
+            print(generate_dict)
 
         json_class, contents = generate_dict.get(json_class_key), generate_dict.get(contents_key)
         jsonloads = generate_dict.get(jsonloads_key, False)
@@ -418,7 +419,7 @@ class PactVerify:
             info['key_more_than_expect_error'] = self.key_more_than_expect_error
 
         if len(self.value_not_match_error) > 0:
-            info['value_not_match_error'] = self.value_not_match_error
+            info['value not match'] = self.value_not_match_error
 
         if len(self.type_not_match_error) > 0:
             info['type_not_match_error'] = self.type_not_match_error
